@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="중학교 3년을 살아가는 SEL 텍스트 게임 프로토타입">
+  <title>우리들의 3년 — SEL 스토리 게임</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="js/data.js"></script>
+  <script defer src="js/sync.js"></script>
+  <script defer src="js/game.js"></script>
+  <script defer src="js/ui.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">3</span><div><strong>우리들의 3년</strong><small>중학교 SEL 스토리 게임 · 프로토타입</small></div></div>
+    <div class="top-actions"><button id="toggleStats" class="quiet-button" type="button">내 상태</button><button id="resetGame" class="quiet-button" type="button" hidden>처음부터</button></div>
+  </header>
+  <main class="layout">
+    <aside id="statsPanel" class="stats-panel" aria-label="현재 스탯">
+      <div class="panel-heading"><span>현재 상태</span><span id="gradeLabel">입학 전</span></div>
+      <div id="playerLabel" class="player-label">캐릭터를 선택해 시작하세요</div>
+      <div id="statList" class="stat-list"></div>
+      <div class="panel-note">선택의 결과는 누적됩니다. 스탯은 능력의 우열이 아니라 현재 상황을 나타내는 지표입니다.</div>
+    </aside>
+    <section class="game-column">
+      <section id="setup" class="setup-card">
+        <p class="eyebrow">3년 · 36개의 달 · 수많은 선택</p>
+        <h1>새로운 교실에서<br>나의 이야기가 시작된다</h1>
+        <p class="intro">중학교 생활 속 크고 작은 선택을 해보세요. 정답을 맞히는 게임이 아니라, 내 선택과 그 영향을 돌아보는 이야기입니다.</p>
+        <label class="field-label" for="playerName">게임에서 사용할 이름 <span>선택 사항</span></label>
+        <input id="playerName" maxlength="16" placeholder="비워두면 캐릭터 기본 이름을 사용해요">
+        <h2 class="choose-heading">플레이어 캐릭터</h2>
+        <div id="characterGrid" class="character-grid"></div>
+        <button id="startGame" class="primary-button" type="button" disabled>캐릭터를 선택하세요</button>
+        <p class="setup-footnote">현재는 1인 체험용 프로토타입입니다. 실제 4인 온라인 동기화는 서버 API 연결 단계에서 적용합니다.</p>
+      </section>
+      <section id="story" class="story" aria-live="polite" hidden>
+        <div class="story-intro"><span class="eyebrow">나의 중학교 생활</span><h1 id="storyTitle">—</h1><p id="storySubtitle"></p></div>
+        <div id="storyLog" class="story-log"></div>
+        <div id="activeTurn" class="active-turn"></div>
+      </section>
+    </section>
+  </main>
+  <footer>교육용 프로토타입 · 언제든 선택을 돌아볼 수 있어요</footer>
+</body>
+</html>
